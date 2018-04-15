@@ -9,8 +9,9 @@ import { ItemsService, Item } from '../shared';
 export class ItemsComponent implements OnInit {
   items: Item[];
   currentItem: Item;
+  title = 'Testing';
 
-  constructor(private itemsService: ItemsService) { }
+  constructor(private itemsService: ItemsService) {}
 
   ngOnInit() {
     this.getItems();
@@ -30,8 +31,7 @@ export class ItemsComponent implements OnInit {
   }
 
   getItems() {
-    this.itemsService.all()
-      .subscribe(items => this.items = items);
+    this.itemsService.all().subscribe(items => (this.items = items));
   }
 
   saveItem(item) {
@@ -43,26 +43,23 @@ export class ItemsComponent implements OnInit {
   }
 
   createItem(item) {
-    this.itemsService.create(item)
-      .subscribe(response => {
-        this.getItems();
-        this.resetCurrentItem();
-      });
+    this.itemsService.create(item).subscribe(response => {
+      this.getItems();
+      this.resetCurrentItem();
+    });
   }
 
   updateItem(item) {
-    this.itemsService.update(item)
-      .subscribe(response => {
-        this.getItems();
-        this.resetCurrentItem();
-      });
+    this.itemsService.update(item).subscribe(response => {
+      this.getItems();
+      this.resetCurrentItem();
+    });
   }
 
   deleteItem(item) {
-    this.itemsService.delete(item)
-      .subscribe(response => {
-        this.getItems();
-        this.resetCurrentItem();
-      });
+    this.itemsService.delete(item).subscribe(response => {
+      this.getItems();
+      this.resetCurrentItem();
+    });
   }
 }

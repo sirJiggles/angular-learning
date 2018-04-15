@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import {
   MdButtonModule,
   MdCardModule,
@@ -8,7 +8,7 @@ import {
   MdListModule,
   MdSidenavModule,
   MdToolbarModule
-} from "@angular/material";
+} from '@angular/material';
 
 @NgModule({
   imports: [
