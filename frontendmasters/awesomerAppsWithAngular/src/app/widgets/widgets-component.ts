@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Widget } from '../widget';
 
 @Component({
   templateUrl: './widgets-component.html',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./widgets-component.css']
 })
 export class WidgetsComponent implements OnInit {
+  selectedWidget: Widget;
   widgets = [
     {
       id: 1,
@@ -44,6 +46,10 @@ export class WidgetsComponent implements OnInit {
     }
   ];
   constructor() {}
+
+  selectWidget(id: number) {
+    this.selectedWidget = this.widgets.find(widget => widget.id === id);
+  }
 
   ngOnInit() {}
 }

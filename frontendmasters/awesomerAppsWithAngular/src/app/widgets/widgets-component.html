@@ -8,21 +8,19 @@
         </md-card-title>
       </md-card-header>
       <md-card-content>
-        <md-list>
-          <md-list-item>
-            <h3 md-line>WIDGET NAME</h3>
+        <md-list *ngFor="let widget of widgets">
+          <md-list-item (click)="selectWidget(widget.id)">
+            <h3 md-line>{{widget.name}}</h3>
             <button md-icon-button>
               <md-icon>close</md-icon>
             </button>
             <p md-line>
-              WIDGET DESCRIPTION
+              {{widget.description}}
             </p>
           </md-list-item>
         </md-list>
       </md-card-content>
     </md-card>
-
-    <pre>{{widgets | json}}</pre>
 
   </div>
 
@@ -33,19 +31,31 @@
       <md-card-header>
         <md-card-title>
           <h1>
-            Select a Widget
+            Selected Widget
           </h1>
         </md-card-title>
       </md-card-header>
       <form>
-        <md-card-content>
-          SELECTED WIDGET DETAILS
-        </md-card-content>
-        <md-card-actions>
-          <button type="submit" md-button>Save</button>
-          <button type="button" md-button>Cancel</button>
-        </md-card-actions>
+        <span *ngIf="selectedWidget; then selectedWidgetTemplate; else noSlectedWidgetTemplate;">
+        </span>
       </form>
     </md-card>
   </div>
 </div>
+
+<ng-template #selectedWidgetTemplate>
+  <md-card-content>
+    <br />
+    <h3 md-line>{{selectedWidget.name}}</h3>
+    <p md-line>
+      {{selectedWidget.description}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button type="submit" md-button>Save</button>
+    <button type="button" md-button>Cancel</button>
+  </md-card-actions>
+</ng-template>
+<ng-template #noSlectedWidgetTemplate>
+  <p>No widget selected!</p>
+</ng-template>
