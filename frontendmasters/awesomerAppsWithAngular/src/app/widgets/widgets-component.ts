@@ -11,13 +11,13 @@ export class WidgetsComponent implements OnInit {
   selectedWidget: Widget;
   widgets: Array<Widget>;
 
-  constructor(private widgetsService: WidgetsService) {
-    this.widgets = widgetsService.widgets;
-  }
+  constructor(private widgetsService: WidgetsService) {}
 
   selectWidget(widget: Widget) {
     this.selectedWidget = widget;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.widgets = this.widgetsService.widgets;
+  }
 }
