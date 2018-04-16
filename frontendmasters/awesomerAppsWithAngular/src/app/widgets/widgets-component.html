@@ -8,8 +8,8 @@
         </md-card-title>
       </md-card-header>
       <md-card-content>
-        <md-list *ngFor="let widget of widgets">
-          <md-list-item (click)="selectWidget(widget.id)">
+        <md-list>
+          <md-list-item *ngFor="let widget of widgets" (click)="selectWidget(widget)">
             <h3 md-line>{{widget.name}}</h3>
             <button md-icon-button>
               <md-icon>close</md-icon>
@@ -31,7 +31,12 @@
       <md-card-header>
         <md-card-title>
           <h1>
-            Selected Widget
+            <span *ngIf="selectedWidget; else selectPromopt;">
+              {{selectedWidget.name}}
+            </span>
+            <ng-template #selectPromopt>
+              Select a widget
+            </ng-template>
           </h1>
         </md-card-title>
       </md-card-header>
@@ -55,7 +60,7 @@
   </md-card-content>
   <md-card-actions>
     <button type="submit" md-button>Save</button>
-    <button type="button" md-button>Cancel</button>
+    <button type="button" md-button (click)="selectWidget(null)">Cancel</button>
   </md-card-actions>
 </ng-template>
 <ng-template #noSlectedWidgetTemplate>

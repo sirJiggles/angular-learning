@@ -47,8 +47,8 @@ export class WidgetsComponent implements OnInit {
   ];
   constructor() {}
 
-  selectWidget(id: number) {
-    this.selectedWidget = this.widgets.find(widget => widget.id === id);
+  selectWidget(widget: Widget) {
+    this.selectedWidget = widget;
   }
 
   ngOnInit() {}
