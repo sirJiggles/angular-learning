@@ -1,6 +1,16 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { Item } from '../../shared';
-import { trigger, transition, state, group, style, animate, keyframes, query, stagger } from '@angular/animations';
+import { Item } from '../../interfaces/item';
+import {
+  trigger,
+  transition,
+  state,
+  group,
+  style,
+  animate,
+  keyframes,
+  query,
+  stagger
+} from '@angular/animations';
 
 @Component({
   selector: 'app-items-list',

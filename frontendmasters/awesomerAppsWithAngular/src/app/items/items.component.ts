@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemsService, Item } from '../shared';
+import { ItemsService } from '../shared';
+import { Item } from '../interfaces/item';
 
 @Component({
   selector: 'app-items',
@@ -9,7 +10,6 @@ import { ItemsService, Item } from '../shared';
 export class ItemsComponent implements OnInit {
   items: Item[];
   currentItem: Item;
-  title = 'Testing';
 
   constructor(private itemsService: ItemsService) {}
 
