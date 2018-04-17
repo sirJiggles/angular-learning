@@ -17,6 +17,8 @@ import { HomeComponent } from './home/home.component';
 import { GizmoComponent } from './gizmo/gizmo.component';
 import { WidgetsComponent } from './widgets/widgets-component';
 import { ReviewComponent } from './review/review.component';
+import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.component';
+import { WidgetsDetailsComponent } from './widgets/widgets-details/widgets-details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ReviewComponent } from './review/review.component';
     ItemDetailComponent,
     GizmoComponent,
     WidgetsComponent,
-    ReviewComponent
+    ReviewComponent,
+    WidgetsListComponent,
+    WidgetsDetailsComponent
   ],
   imports: [
     BrowserAnimationsModule,

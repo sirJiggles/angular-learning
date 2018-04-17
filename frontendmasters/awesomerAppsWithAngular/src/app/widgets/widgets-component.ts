@@ -8,16 +8,27 @@ import { WidgetsService } from '../shared';
   styleUrls: ['./widgets-component.css']
 })
 export class WidgetsComponent implements OnInit {
-  selectedWidget: Widget;
+  currentSelected: Widget;
   widgets: Array<Widget>;
 
   constructor(private widgetsService: WidgetsService) {}
 
-  selectWidget(widget: Widget) {
-    this.selectedWidget = widget;
-  }
-
   ngOnInit() {
     this.widgets = this.widgetsService.widgets;
+  }
+
+  widgetSelected(widget: Widget) {
+    this.currentSelected = widget;
+  }
+
+  saveWidget(widget: Widget) {
+    const widgets = this.widgets.map(currWidget => {
+      if (widget.id === currWidget.id) {
+        return widget;
+      }
+      return currWidget;
+    });
+    // overide the widgets with new state
+    this.widgets = widgets;
   }
 }
