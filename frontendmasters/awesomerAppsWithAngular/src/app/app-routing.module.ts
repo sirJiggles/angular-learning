@@ -4,12 +4,14 @@ import { ItemsComponent } from './items/items.component';
 import { HomeComponent } from './home/home.component';
 import { GizmoComponent } from './gizmo/gizmo.component';
 import { WidgetsComponent } from './widgets/widgets-component';
+import { ReviewComponent } from './review/review.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'items', component: ItemsComponent },
   { path: 'gizmo', component: GizmoComponent },
   { path: 'widgets', component: WidgetsComponent },
+  { path: 'reviews', component: ReviewComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
