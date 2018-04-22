@@ -33,8 +33,6 @@ export class WidgetsComponent implements OnInit {
   }
 
   private loadWidgets() {
-    this.widgetsService
-      .loadWidgets()
-      .subscribe(widgets => (this.widgets = widgets));
+    this.widgetsService.all().subscribe(widgets => (this.widgets = widgets));
   }
 }
