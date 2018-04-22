@@ -1,30 +1,29 @@
-<div class="col-50">
-  <md-card>
-    <md-card-header>
-      <md-card-title>
-        <h1>
-          <span *ngIf="originalWidget.id; else createPromopt;">
-            {{originalWidget.name}}
-          </span>
-          <ng-template #createPromopt>
-            Create Widget
-          </ng-template>
-        </h1>
-      </md-card-title>
-    </md-card-header>
-    <form (submit)="saved.emit(currentWidget)" #widgetForm="ngForm">
-      <md-card-content>
-        <md-input-container class="full-width">
-          <input mdInput placeholder="Name" required [(ngModel)]="currentWidget.name" type="text" name="name">
-        </md-input-container>
-        <md-input-container class="full-width">
-          <input mdInput placeholder="Description" required [(ngModel)]="currentWidget.description" type="text" name="description">
-        </md-input-container>
-      </md-card-content>
-      <md-card-actions>
-        <button type="submit" md-button [disabled]="widgetForm.invalid || widgetForm.pristine">Save</button>
-        <button type="button" md-button (click)="cancelled.emit(currentWidget)">Cancel</button>
-      </md-card-actions>
-    </form>
-  </md-card>
-</div>
+
+<md-card>
+  <md-card-header>
+    <md-card-title>
+      <h1>
+        <span *ngIf="originalWidget.id; else createPromopt;">
+          {{originalWidget.name}}
+        </span>
+        <ng-template #createPromopt>
+          Create Widget
+        </ng-template>
+      </h1>
+    </md-card-title>
+  </md-card-header>
+  <form (submit)="saved.emit(currentWidget)" #widgetForm="ngForm">
+    <md-card-content>
+      <md-input-container class="full-width">
+        <input mdInput placeholder="Name" required [(ngModel)]="currentWidget.name" type="text" name="name">
+      </md-input-container>
+      <md-input-container class="full-width">
+        <input mdInput placeholder="Description" required [(ngModel)]="currentWidget.description" type="text" name="description">
+      </md-input-container>
+    </md-card-content>
+    <md-card-actions>
+      <button type="submit" md-button [disabled]="widgetForm.invalid || widgetForm.pristine">Save</button>
+      <button type="button" md-button (click)="cancelled.emit(currentWidget)">Cancel</button>
+    </md-card-actions>
+  </form>
+</md-card>

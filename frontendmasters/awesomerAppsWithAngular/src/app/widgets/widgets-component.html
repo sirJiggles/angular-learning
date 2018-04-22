@@ -1,6 +1,7 @@
 <div class="container">
   <!-- WIDGETS LIST -->
   <app-widgets-list
+    class="col-50"
     [widgets]="widgets"
     (selected)="widgetSelected($event)"
     (deleted)="deleteWidget($event)"
@@ -9,6 +10,7 @@
 
   <!-- WIDGET DETAILS -->
   <app-widgets-details
+    class="col-50"
     [currentSelectedWidget]="currentSelected"
     (saved)="saveWidget($event)"
     (cancelled)="cancel($event)"
