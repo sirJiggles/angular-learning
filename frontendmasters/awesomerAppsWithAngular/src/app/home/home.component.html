@@ -1,5 +1,10 @@
 <div class="container">
   <div class="col-100">
+    <app-status [loggedIn]="isLoggedIn" (login)="login($event)" (logout)="logout($event)" ></app-status>
+  </div>
+</div>
+<div class="container">
+  <div class="col-100">
     <app-items-search (results)="handeResults($event)"></app-items-search>
   </div>
 </div>

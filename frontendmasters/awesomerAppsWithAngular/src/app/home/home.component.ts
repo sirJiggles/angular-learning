@@ -12,6 +12,7 @@ import { Widget } from '../interfaces/widget';
 export class HomeComponent implements OnInit {
   items: Item[];
   widgets: Array<Widget>;
+  isLoggedIn = false;
 
   constructor(
     private itemsService: ItemsService,
@@ -31,5 +32,12 @@ export class HomeComponent implements OnInit {
   }
   handeResults(items: Array<Item>) {
     this.items = items;
+  }
+
+  login(e: any) {
+    this.isLoggedIn = !this.isLoggedIn;
+  }
+  logout(e: any) {
+    this.isLoggedIn = !this.isLoggedIn;
   }
 }

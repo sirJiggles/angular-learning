@@ -1,0 +1,4 @@
+<md-card>
+  <button md-raised-button *ngIf="!loggedIn" (click)="login.emit($event)">Login</button>
+  <button md-raised-button *ngIf="loggedIn" (click)="logout.emit($event)">Logout</button>
+</md-card>
