@@ -14,7 +14,7 @@ export class WidgetsComponent implements OnInit {
   constructor(private widgetsService: WidgetsService) {}
 
   ngOnInit() {
-    this.widgets = this.widgetsService.widgets;
+    this.loadWidgets();
   }
 
   widgetSelected(widget: Widget) {
@@ -30,5 +30,11 @@ export class WidgetsComponent implements OnInit {
     });
     // overide the widgets with new state
     this.widgets = widgets;
+  }
+
+  private loadWidgets() {
+    this.widgetsService
+      .loadWidgets()
+      .subscribe(widgets => (this.widgets = widgets));
   }
 }
