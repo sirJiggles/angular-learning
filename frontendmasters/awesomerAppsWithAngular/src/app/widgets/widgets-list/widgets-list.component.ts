@@ -8,6 +8,7 @@ import { Widget } from '../../interfaces/widget';
 })
 export class WidgetsListComponent implements OnInit {
   @Input() widgets: Array<Widget>;
+  @Input() readonly = false;
   @Output() selected: EventEmitter<Widget> = new EventEmitter();
   @Output() deleted: EventEmitter<Widget> = new EventEmitter();
 

@@ -9,7 +9,7 @@
       <md-list>
         <md-list-item *ngFor="let widget of widgets" (click)="selected.emit(widget)">
           <h3 md-line>{{widget.name}}</h3>
-          <button md-icon-button (click)="deleted.emit(widget); $event.stopImmediatePropagation();">
+          <button *ngIf="!readonly" md-icon-button (click)="deleted.emit(widget); $event.stopImmediatePropagation();">
             <md-icon>close</md-icon>
           </button>
           <p md-line>
