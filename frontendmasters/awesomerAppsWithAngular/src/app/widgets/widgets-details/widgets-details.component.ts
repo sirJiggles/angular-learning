@@ -17,25 +17,12 @@ export class WidgetsDetailsComponent implements OnInit {
     }
   }
 
-  @Output() saveWidget: EventEmitter<Widget> = new EventEmitter();
+  @Output() saved: EventEmitter<Widget> = new EventEmitter();
+  @Output() cancelled: EventEmitter<Widget> = new EventEmitter();
 
   originalWidget: Widget;
 
   constructor() {}
 
   ngOnInit() {}
-
-  didSaveWidget(widget: Widget) {
-    this.saveWidget.emit(widget);
-    this.reset();
-  }
-
-  cancelSaving() {
-    this.reset();
-  }
-
-  private reset() {
-    this.currentWidget = null;
-    this.originalWidget = null;
-  }
 }

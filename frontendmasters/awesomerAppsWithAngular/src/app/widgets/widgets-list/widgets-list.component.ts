@@ -8,13 +8,10 @@ import { Widget } from '../../interfaces/widget';
 })
 export class WidgetsListComponent implements OnInit {
   @Input() widgets: Array<Widget>;
-  @Output() selectedWidget: EventEmitter<Widget> = new EventEmitter();
+  @Output() selected: EventEmitter<Widget> = new EventEmitter();
+  @Output() deleted: EventEmitter<Widget> = new EventEmitter();
 
   constructor() {}
 
   ngOnInit() {}
-
-  selectWidget(widget: Widget) {
-    this.selectedWidget.emit(widget);
-  }
 }

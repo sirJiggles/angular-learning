@@ -2,13 +2,15 @@
   <!-- WIDGETS LIST -->
   <app-widgets-list
     [widgets]="widgets"
-    (selectedWidget)="widgetSelected($event)"
+    (selected)="widgetSelected($event)"
+    (deleted)="deleteWidget($event)"
   >
   </app-widgets-list>
 
   <!-- WIDGET DETAILS -->
   <app-widgets-details
     [currentSelectedWidget]="currentSelected"
-    (saveWidget)="saveWidget($event)"
+    (saved)="saveWidget($event)"
+    (cancelled)="cancel($event)"
   ></app-widgets-details>
 </div>

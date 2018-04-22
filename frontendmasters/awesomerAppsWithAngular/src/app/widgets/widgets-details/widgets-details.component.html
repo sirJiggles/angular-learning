@@ -3,37 +3,28 @@
     <md-card-header>
       <md-card-title>
         <h1>
-          <span *ngIf="originalWidget; else selectPromopt;">
+          <span *ngIf="originalWidget.id; else createPromopt;">
             {{originalWidget.name}}
           </span>
-          <ng-template #selectPromopt>
-            Select a widget
+          <ng-template #createPromopt>
+            Create Widget
           </ng-template>
         </h1>
       </md-card-title>
     </md-card-header>
-    <div *ngIf="currentWidget; then selectedWidgetTemplate; else noSlectedWidgetTemplate;">
-    </div>
+    <form (submit)="saved.emit(currentWidget)" #widgetForm="ngForm">
+      <md-card-content>
+        <md-input-container class="full-width">
+          <input mdInput placeholder="Name" required [(ngModel)]="currentWidget.name" type="text" name="name">
+        </md-input-container>
+        <md-input-container class="full-width">
+          <input mdInput placeholder="Description" required [(ngModel)]="currentWidget.description" type="text" name="description">
+        </md-input-container>
+      </md-card-content>
+      <md-card-actions>
+        <button type="submit" md-button [disabled]="widgetForm.invalid || widgetForm.pristine">Save</button>
+        <button type="button" md-button (click)="cancelled.emit(currentWidget)">Cancel</button>
+      </md-card-actions>
+    </form>
   </md-card>
 </div>
-
-<ng-template #selectedWidgetTemplate>
-  <form #widgetForm="ngForm">
-    <md-card-content>
-      <br/>
-      <md-input-container class="full-width">
-        <input mdInput required placeholder="Name" [(ngModel)]="currentWidget.name" type="text" name="name">
-      </md-input-container>
-      <md-input-container class="full-width">
-        <input mdInput required placeholder="Description" [(ngModel)]="currentWidget.description" type="text" name="description">
-      </md-input-container>
-    </md-card-content>
-    <md-card-actions>
-      <button type="submit" md-button [disabled]="widgetForm.invalid || widgetForm.pristine" (click)="didSaveWidget(currentWidget)">Save</button>
-      <button type="button" md-button [disabled]="widgetForm.pristine" (click)="cancelSaving()">Cancel</button>
-    </md-card-actions>
-  </form>
-</ng-template>
-<ng-template #noSlectedWidgetTemplate>
-  <p>No widget selected!</p>
-</ng-template>
