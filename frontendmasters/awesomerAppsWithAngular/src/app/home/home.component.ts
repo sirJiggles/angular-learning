@@ -29,4 +29,7 @@ export class HomeComponent implements OnInit {
   getWidgets() {
     this.widgetsService.all().subscribe(widgets => (this.widgets = widgets));
   }
+  handeResults(items: Array<Item>) {
+    this.items = items;
+  }
 }
