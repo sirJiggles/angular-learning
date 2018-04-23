@@ -4,13 +4,13 @@
       <h1>Newsletter</h1>
     </md-card-title>
   </md-card-header>
-  <form novalidate>
+  <form [formGroup]="subscriber" (submit)="submitForm(subscriber)">
     <md-card-content>
       <md-input-container class="full-width">
-        <input type="text"  mdInput placeholder="Name">
+        <input type="text"  mdInput placeholder="Name" formControlName="name">
       </md-input-container>
       <md-input-container class="full-width">
-        <input type="text" mdInput placeholder="Email">
+        <input type="text" mdInput placeholder="Email" formControlName="email">
       </md-input-container>
     </md-card-content>
     <md-card-actions>

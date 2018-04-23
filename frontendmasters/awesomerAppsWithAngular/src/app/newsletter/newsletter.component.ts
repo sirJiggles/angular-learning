@@ -1,10 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-interface Subscriber {
-  name: string;
-  email: string;
-}
+import { Subscriber } from '../interfaces/Subscriber';
 
 @Component({
   selector: 'app-newsletter',
@@ -12,7 +8,28 @@ interface Subscriber {
   styleUrls: ['./newsletter.component.css']
 })
 export class NewsletterComponent implements OnInit {
-  constructor() {}
+  subscriber: FormGroup;
+
+  constructor(@Inject(FormBuilder) fb: FormBuilder) {
+    this.subscriber = fb.group(
+      {
+        name: ['', [Validators.minLength(3), Validators.required]],
+        email: ['', [Validators.email, Validators.required]]
+      },
+      null
+    );
+  }
 
   ngOnInit() {}
+
+  submitForm({ value, valid }: { value: Subscriber; valid: boolean }) {
+    console.log(value, valid);
+    if (valid) {
+      this.reset();
+    }
+  }
+
+  reset() {
+    this.subscriber.reset();
+  }
 }
