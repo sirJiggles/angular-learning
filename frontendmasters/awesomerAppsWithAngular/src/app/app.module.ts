@@ -21,6 +21,7 @@ import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.compon
 import { WidgetsDetailsComponent } from './widgets/widgets-details/widgets-details.component';
 import { ItemsSearchComponent } from './items/items-search/items-search.component';
 import { StatusComponent } from './status/status.component';
+import { NewsletterComponent } from './newsletter/newsletter.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { StatusComponent } from './status/status.component';
     WidgetsListComponent,
     WidgetsDetailsComponent,
     ItemsSearchComponent,
-    StatusComponent
+    StatusComponent,
+    NewsletterComponent
   ],
   imports: [
     BrowserAnimationsModule,
