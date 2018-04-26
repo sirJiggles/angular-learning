@@ -19,7 +19,7 @@ export class ItemsService {
     return this.http.get(BASE_URL).map(res => res.json());
   }
 
-  load(id) {
+  load(id: number) {
     return this.http.get(`${BASE_URL}${id}`).map(res => res.json());
   }
 
