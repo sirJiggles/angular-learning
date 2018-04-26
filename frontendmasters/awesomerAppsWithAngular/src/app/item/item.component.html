@@ -1,3 +1,9 @@
-<p>
-  item works!
-</p>
+<div class="container">
+  <app-item-detail
+  class="col-50"
+  [item]="item"
+  (saved)="saveItem($event)"
+  (cancelled)="cancelSavingItem($event)"
+  >
+  </app-item-detail>
+</div>
