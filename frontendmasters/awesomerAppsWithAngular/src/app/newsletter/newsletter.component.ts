@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscriber } from '../interfaces/Subscriber';
+import { NotificationsService } from '../shared';
 
 @Component({
   selector: 'app-newsletter',
@@ -10,7 +11,10 @@ import { Subscriber } from '../interfaces/Subscriber';
 export class NewsletterComponent implements OnInit {
   subscriber: FormGroup;
 
-  constructor(@Inject(FormBuilder) fb: FormBuilder) {
+  constructor(
+    @Inject(FormBuilder) fb: FormBuilder,
+    private ns: NotificationsService
+  ) {
     this.subscriber = fb.group(
       {
         name: ['', [Validators.minLength(3), Validators.required]],
@@ -23,8 +27,8 @@ export class NewsletterComponent implements OnInit {
   ngOnInit() {}
 
   submitForm({ value, valid }: { value: Subscriber; valid: boolean }) {
-    console.log(value, valid);
     if (valid) {
+      this.ns.emit(`${value.name} subscribed!`);
       this.reset();
     }
   }

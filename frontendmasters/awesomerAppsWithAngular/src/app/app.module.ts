@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './app-material.module';
 
-import { ItemsService, WidgetsService } from './shared';
+import { ItemsService, WidgetsService, NotificationsService } from './shared';
 
 import { AppComponent } from './app.component';
 import { ItemsComponent } from './items/items.component';
@@ -22,6 +22,7 @@ import { WidgetsDetailsComponent } from './widgets/widgets-details/widgets-detai
 import { ItemsSearchComponent } from './items/items-search/items-search.component';
 import { StatusComponent } from './status/status.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
+import { ItemComponent } from './item/item.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { NewsletterComponent } from './newsletter/newsletter.component';
     WidgetsDetailsComponent,
     ItemsSearchComponent,
     StatusComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    ItemComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -48,7 +50,7 @@ import { NewsletterComponent } from './newsletter/newsletter.component';
     AppRoutingModule,
     AppMaterialModule
   ],
-  providers: [ItemsService, WidgetsService],
+  providers: [ItemsService, WidgetsService, NotificationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

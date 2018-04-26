@@ -7,7 +7,8 @@ import {
   MdInputModule,
   MdListModule,
   MdSidenavModule,
-  MdToolbarModule
+  MdToolbarModule,
+  MdSnackBarModule
 } from '@angular/material';
 
 @NgModule({
@@ -19,7 +20,8 @@ import {
     MdInputModule,
     MdListModule,
     MdSidenavModule,
-    MdToolbarModule
+    MdToolbarModule,
+    MdSnackBarModule
   ],
   exports: [
     MdButtonModule,
@@ -29,7 +31,8 @@ import {
     MdInputModule,
     MdListModule,
     MdSidenavModule,
-    MdToolbarModule
+    MdToolbarModule,
+    MdSnackBarModule
   ]
 })
 export class AppMaterialModule {}
