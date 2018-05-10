@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AppMaterialModule } from './app-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NotificationsService } from './shared';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -14,8 +15,13 @@ describe('AppComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-      imports: [ AppMaterialModule, BrowserAnimationsModule, RouterTestingModule ],
-      declarations: [ AppComponent ],
+      imports: [
+        AppMaterialModule,
+        BrowserAnimationsModule,
+        RouterTestingModule
+      ],
+      declarations: [AppComponent],
+      providers: [NotificationsService]
     }).createComponent(AppComponent);
 
     component = fixture.componentInstance;

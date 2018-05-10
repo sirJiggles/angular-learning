@@ -23,6 +23,7 @@ import { ItemsSearchComponent } from './items/items-search/items-search.componen
 import { StatusComponent } from './status/status.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { ItemComponent } from './item/item.component';
+import { FriesComponent } from './fries/fries.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ItemComponent } from './item/item.component';
     ItemsSearchComponent,
     StatusComponent,
     NewsletterComponent,
-    ItemComponent
+    ItemComponent,
+    FriesComponent
   ],
   imports: [
     BrowserAnimationsModule,
